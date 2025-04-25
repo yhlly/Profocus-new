@@ -1,0 +1,4 @@
+Enter your database password into .env
+mysql -u [username] -h [hostname] -p < .sql
+npm install
+npm run dev
