@@ -1,0 +1,56 @@
+Node.js Installation and Configuration Guide
+
+Step 1: Download Node.js
+1.	Visit the official website: https://nodejs.org/en
+2.	Download the recommended LTS version.
+
+Step 2: Installation
+1.	Run the downloaded .msi file and click “Next”.
+2.	Customize the installation path
+  - It is recommended to install Node.js outside the C: drive
+  - For example: D:\nodejs or E:\Program Files\nodejs according to your preference
+  - Alternatively, you can use the default path: C:\Program Files\nodejs 
+3.	Click “Next”, then “Install”, and finally click “Finish” after completion.
+4.	Create two new folders in your Node.js installation directory:
+  - node_global (for globally installed packages)
+  - node_cache (for npm cache)
+  For example: D:\nodejs\node_global and D:\nodejs\node_cache
+
+Step 3: Environment Configuration
+Configure System Variables
+1.	Right-click on "This PC" or "My Computer" and select "Properties".
+2.	Click on “Advanced system settings”.
+3.	In the System Properties Window, click the “Environment Variables” button
+4.	Under “System variables” section, click “New” and add the following:
+	Variable name: NODE_HOME
+	Variable value: D:\nodejs (or your actual installation path)
+5.	Click “OK”
+
+Add to Path Variable
+1.	In the same “System Variables” section, find and select “Path”, then click “Edit”
+2.	Click “New” and add the following entries one by one:
+  -	%NODE_HOME%
+  -	%NODE_HOME%\node_global
+  -	%NODE_HOME%\node_cache
+3.	Click “OK”
+ 
+Fix User Variables
+1.	In the “User Variables” section, find the “Path” variable and click “Edit”.
+2.	If you see C:\Users\[username]\AppData\Roaming\npm, remove it and add D:\nodejs\node_global (or your equivalent path).
+3.	Click “OK” to save changes.
+
+Configure NPM default Directories
+Open Command Prompt as Administrator and run following commands:
+-	npm config set prefix “D:\nodejs\node_global”
+-	npm config set cache “D:\nodejs\node_cache”
+
+Step 4: Verification
+1.	Close and reopen Command Prompt (ensure you’re not using PowerShell)
+2.	Verify Node.js installation by entering: node -v
+3.	Verify npm installation by entering: npm -v
+4.	Both commands should display their respective version numbers.
+
+Troubleshooting
+-	If commands are not recognized, ensure you’ve restarted Command Prompt after setting environment variables. 
+-	You may need to restart your computer for environment variable changes to take effect.
+-	If you encounter permission errors, run Command Prompt as Administrator.
